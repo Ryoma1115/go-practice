@@ -48,7 +48,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
 }
 
 func editHandler(w http.ResponseWriter, r *http.Request, title string) {
-	// title := r.URL.Path[len("/edit/"):]
+
 	p, err := loadPage(title)
 	if err != nil {
 		p = &Page{Title: title}
@@ -57,7 +57,7 @@ func editHandler(w http.ResponseWriter, r *http.Request, title string) {
 }
 
 func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
-	// title := r.URL.Path[len("/save/"):]
+
 	body := r.FormValue("body")
 	p := &Page{Title: title, Body: []byte(body)}
 	err := p.save()
